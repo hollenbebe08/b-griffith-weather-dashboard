@@ -4,3 +4,11 @@ header {
     text-align: center;
     font-size: 30pt;
 }
+
+.city-btn {
+    background-color: rgb(219, 220, 224)
+}
+
+.form-control {
+    border: 1px solid grey;
+}

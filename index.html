@@ -9,28 +9,38 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <header class="col-12 text-centered">Weather Dashboard</header>
+    <header class="col-12 text-centered">
+        <h1>Weather Dashboard</h1>
+    </header>
     <main class="flex-row">
-        <div>
+        <div class= "col-12 col-md-4">
             <!-- search input to type in a city -->
-            <div class="col-12 col-md-4">
-                <div class="card">
-                <h3 class="card-header text-uppercase">Search for a City:</h3>
-                <form id="city-form" class="card-body">
-                    <label class="form-label" for="cityname">Search</label>
-                    <input name="city" id="cityname" type="text" autofocus="true" class="form-input" />
-                    <button type="submit" class="btn">Get City</button>
+            <div class="card">
+                <h3 class="card-header">Search for a City:</h3>
+                <form id="city-form" class="card-body input-group">
+                    <span class="input-group-text" id="inputGroup-sizing-default" style="display:none"></span>
+                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                    <button type="submit" class="d-grid gap-2 col-12 mx-auto btn btn-primary">Search</button>
                 </form>
-                </div>
-            <div>
-                <!-- cities to search for with buttons will go here -->
             </div>
         </div>
-        <div>
-            <div class="col-12 col-md-8">
-                <h2>Weather for each City Will go Here</h2>
-            </div>
+        <!-- click on button to search weather in specific cities -->
+        <div class="d-grid gap-2 col-12 mx-auto" id="city-buttons">
+            <button class="btn btn-secondary">Austin</button>
+            <button class="btn btn-secondary">Chicago</button>
+            <button class="btn btn-secondary">New York</button>
+            <button class="btn btn-secondary">Orlando</button>
+            <button class="btn btn-secondary">San Francisco</button>
+            <button class="btn btn-secondary">Seattle</button>
+            <button class="btn btn-secondary">Denver</button>
+            <button class="btn btn-secondary">Atlanta</button>
+        </div>
+        <div class="col-12 col-md-8">
             <div>
+                <h2>Weather for each city will go here</h2>
+            </div>
+            <div class="card">
+                <h5 class = "card-header">forecast</h5>
                 <!-- five cards will go here for the five day forecast -->
             </div>
         </div>
