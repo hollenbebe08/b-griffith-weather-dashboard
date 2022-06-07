@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/> 
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <title>Weather Dashboard</title>
+</head>
+<body>
+    <header class="col-12 text-centered">Weather Dashboard</header>
+    <main class="flex-row">
+        <div>
+            <!-- search input to type in a city -->
+            <div class="col-12 col-md-4">
+                <div class="card">
+                <h3 class="card-header text-uppercase">Search for a City:</h3>
+                <form id="city-form" class="card-body">
+                    <label class="form-label" for="cityname">Search</label>
+                    <input name="city" id="cityname" type="text" autofocus="true" class="form-input" />
+                    <button type="submit" class="btn">Get City</button>
+                </form>
+                </div>
+            <div>
+                <!-- cities to search for with buttons will go here -->
+            </div>
+        </div>
+        <div>
+            <div class="col-12 col-md-8">
+                <h2>Weather for each City Will go Here</h2>
+            </div>
+            <div>
+                <!-- five cards will go here for the five day forecast -->
+            </div>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="./assets/js/script.js"></script>
+</body>
+</html>
