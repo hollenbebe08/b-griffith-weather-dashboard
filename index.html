@@ -12,34 +12,53 @@
     <header class="col-12 text-centered">
         <h1>Weather Dashboard</h1>
     </header>
-    <main class="flex-row">
-        <div class= "col-12 col-md-4">
+    <main class="d-flex">
+        <div class= "col-3">
             <!-- search input to type in a city -->
             <div class="card">
                 <h3 class="card-header">Search for a City:</h3>
                 <form id="city-form" class="card-body input-group">
                     <span class="input-group-text" id="inputGroup-sizing-default" style="display:none"></span>
-                    <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                    <input type="text" class="form-control" id="city-name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
                     <button type="submit" class="d-grid gap-2 col-12 mx-auto btn btn-primary">Search</button>
                 </form>
             </div>
-        </div>
-        <!-- click on button to search weather in specific cities -->
-        <div class="d-grid gap-2 col-12 mx-auto" id="city-buttons">
-            <button class="btn btn-secondary">Austin</button>
-            <button class="btn btn-secondary">Chicago</button>
-            <button class="btn btn-secondary">New York</button>
-            <button class="btn btn-secondary">Orlando</button>
-            <button class="btn btn-secondary">San Francisco</button>
-            <button class="btn btn-secondary">Seattle</button>
-            <button class="btn btn-secondary">Denver</button>
-            <button class="btn btn-secondary">Atlanta</button>
-        </div>
-        <div class="col-12 col-md-8">
-            <div>
-                <h2>Weather for each city will go here</h2>
+             <!-- click on button to search weather in specific cities -->
+            <div id="city-buttons">
+                <button class="d-grid gap-2 col-12 mx-auto btn btn-secondary">Austin</button>
+                <button class="d-grid gap-2 col-12 mx-auto btn btn-secondary">Chicago</button>
+                <button class="d-grid gap-2 col-12 mx-auto btn btn-secondary">New York</button>
+                <button class="d-grid gap-2 col-12 mx-auto btn btn-secondary">Orlando</button>
+                <button class="d-grid gap-2 col-12 mx-auto btn btn-secondary">San Francisco</button>
+                <button class="d-grid gap-2 col-12 mx-auto btn btn-secondary">Seattle</button>
+                <button class="d-grid gap-2 col-12 mx-auto btn btn-secondary">Denver</button>
+                <button class="d-grid gap-2 col-12 mx-auto btn btn-secondary">Atlanta</button>
             </div>
-            <div class="card">
+        </div>
+        <div class="col-3 col-md-8">
+            <div>
+                <h2>Weather for Charlotte</h2>
+                <div id="clt-weather-container" class="list-group">
+
+                </div>
+            </div>
+            <div class="col-3 card">
+                <h5 class = "card-header">forecast</h5>
+                <!-- five cards will go here for the five day forecast -->
+            </div>
+            <div class="col-3 card">
+                <h5 class = "card-header">forecast</h5>
+                <!-- five cards will go here for the five day forecast -->
+            </div>
+            <div class="col-3 card">
+                <h5 class = "card-header">forecast</h5>
+                <!-- five cards will go here for the five day forecast -->
+            </div>
+            <div class="col-3 card">
+                <h5 class = "card-header">forecast</h5>
+                <!-- five cards will go here for the five day forecast -->
+            </div>
+            <div class="col-3 card">
                 <h5 class = "card-header">forecast</h5>
                 <!-- five cards will go here for the five day forecast -->
             </div>
