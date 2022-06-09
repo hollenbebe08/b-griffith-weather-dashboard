@@ -12,3 +12,8 @@ header {
 .form-control {
     border: 1px solid grey;
 }
+
+.display-weather {
+    border: 2px solid grey;
+    padding: 20px;
+}

@@ -19,12 +19,12 @@
                 <h3 class="card-header">Search for a City:</h3>
                 <form id="city-form" class="card-body input-group">
                     <span class="input-group-text" id="inputGroup-sizing-default" style="display:none"></span>
-                    <input type="text" class="form-control" id="city-name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-                    <button type="submit" class="d-grid gap-2 col-12 mx-auto btn btn-primary">Search</button>
+                    <input type="text" class="form-control inputValue" id="city-name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg" placeholder="Enter a City Name">
+                    <button type="submit" class="d-grid gap-2 col-12 mx-auto btn btn-primary" id="search-button">Search</button>
                 </form>
             </div>
              <!-- click on button to search weather in specific cities -->
-            <div id="city-buttons">
+            <!-- <div id="city-buttons">
                 <button class="d-grid gap-2 col-12 mx-auto btn btn-secondary">Austin</button>
                 <button class="d-grid gap-2 col-12 mx-auto btn btn-secondary">Chicago</button>
                 <button class="d-grid gap-2 col-12 mx-auto btn btn-secondary">New York</button>
@@ -33,14 +33,15 @@
                 <button class="d-grid gap-2 col-12 mx-auto btn btn-secondary">Seattle</button>
                 <button class="d-grid gap-2 col-12 mx-auto btn btn-secondary">Denver</button>
                 <button class="d-grid gap-2 col-12 mx-auto btn btn-secondary">Atlanta</button>
-            </div>
+            </div> -->
         </div>
         <div class="col-3 col-md-8">
-            <div>
-                <h2>Weather for Charlotte</h2>
-                <div id="clt-weather-container" class="list-group">
-
-                </div>
+            <div class="display-weather">
+                <h2 class="name-of-city" id="currentDay">City</h2>
+                <p class="temp">temp</p>
+                <p class="wind">wind</p>
+                <p class="humidity">humidity</p>
+                <p class="uv-index">uv index</p>
             </div>
             <div class="col-3 card">
                 <h5 class = "card-header">forecast</h5>
@@ -65,6 +66,8 @@
         </div>
     </main>
     <footer></footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 </html>
