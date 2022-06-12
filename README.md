@@ -19,7 +19,7 @@ The Weather Dashboard allows the user to enter a city within the USA into the se
 ## Future Enhancements:
 * Have the icon display in the five day forecast
 * Have only the current weather icon appended to the page and the other removed upon load with the new cities data
-* Refractor the code to loop through the five day forecast and append items to the DOM (shortening both the HTML and JS code)
+* Refactor the code to loop through the five day forecast and append items to the DOM (shortening both the HTML and JS code)
 * Have the UV Index change color depending on its severity
 * Have the search history list be clickable and for the search histories data to reapper in the current and five day forecast weather displays
 * Have the code be responsive to smaller screen sizes
