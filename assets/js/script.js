@@ -2,7 +2,10 @@
 var cityFormSearchEl = document.querySelector("#city-form");
 var searchButton = document.querySelector("#search-button");
 var inputValue = document.querySelector(".form-control");
+var historyCard = document.querySelector(".history-card");
+var searchHistoryEl = document.querySelector("#search-history");
 var searchHistory = [];
+uvBadgeEl = document.querySelector(".badge");
 
 //variables for the display-weather div
 var cityName = document.querySelector(".name-of-city");
@@ -11,7 +14,6 @@ var temp = document.querySelector(".temp");
 var wind= document.querySelector(".wind");
 var humidity= document.querySelector(".humidity");
 var icon = document.querySelector(".weatherIcon");
-// var uvIndex= document.querySelector(".uv-index");
 
 //variables for five day forecast - Day One
 var forecastDate = document.querySelector(".forecastDateOne");
@@ -43,10 +45,52 @@ forecastTempFive = document.querySelector(".forecastTempFive");
 forecastWindFive = document.querySelector(".forecastWindFive");
 forecastHumidityFive = document.querySelector(".forecastHumidityFive");
 
+function pageLoad(){
+    //on page load we want to display the most recent search history
+    if(localStorage.getItem("searchHistory")){
+        updateHistory();
+    }
+}
 
-//searchButton event listener and the functions for the weather display & five day forecast
-// searchButton.addEventListener("click", function() {
-//     event.preventDefault();
+//add search term to to history array and local storage
+function addTerm(citySearch){
+    //if there is something in local storage
+    if(localStorage.getItem("searchHistory")){
+        searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
+    }
+    searchHistory.push(citySearch);
+    if(searchHistory.length > 5){
+        searchHistory.shift();
+    }
+    localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+
+    //call the function to update the history
+    updateHistory();
+}
+
+//update history from local storage
+function updateHistory() {
+    //clear searchHistory div
+    searchHistoryEl.textcontent = "";
+    searchHistory = JSON.parse(localStorage.getItem("searchHistory"));
+    for(var i = searchHistory.length -1; i >= 0; i --){
+        var pastSearch = document.createElement("li");
+        pastSearch.innerHTML = searchHistory[i];
+        pastSearch.setAttribute("data-value", searchHistory[i]);
+
+        searchHistoryEl.appendChild(pastSearch);
+    }
+}
+
+//save to local storage
+function saveSearch(){
+var citySearch = inputValue.value.trim();
+    if(!citySearch){
+        return false;
+    }
+    addTerm(citySearch)
+};
+
 var displayWeather = function() {
     var currentWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + inputValue.value + "&appid=a0e1548f4b7fe9bc85174edebf7cf635&units=imperial"
     fetch(currentWeather)
@@ -155,23 +199,24 @@ var displayUVIndex = function(){
         response.json().then(function(data) {
             var lat = data.coord.lat;
             var lon = data.coord.lon;
-            var uvValue = "https://api.openweathermap.org/data/2.5/weather?lat="+ lat + "&lon=" + lon + "&appid=a0e1548f4b7fe9bc85174edebf7cf635&units=imperial";
-            fetch(uvValue) 
-            console.log(uvValue);
-            // .then (function(response){ 
-            //         response.json().then(function(data) {
-            //             console.log(data);
-            //         // if(uvValue < 2){
-            //         //     uvIndex.addClass("badge-success");
-            //         // }
-            //         // else if (uvValue > 2 && uvIndex < 6) {
-            //         //     uvIndex.addClass("yellow");
-            //         // }
-            //         // else {
-            //         //     uvBadgeEl.addClass("red");
-            //         // }
-            //     // })
-            // }) 
+            var uvValue = "https://api.openweathermap.org/data/2.5/onecall?lat="+ lat + "&lon=" + lon + "&appid=a0e1548f4b7fe9bc85174edebf7cf635&units=imperial";
+            fetch(uvValue)
+            .then(function(response){
+                response.json().then(function(data) {
+                    // console.log(data);
+                    var uvIndex = data.hourly[0].uvi;
+                    console.log(uvIndex);
+                        // if(uvIndex > 2 ){
+                        //     uvBadgeEl.removeClass("badge");
+                        // }
+                        // // // else if (uvIndex > 2 && uvIndex < 6) {
+                        // //     uvBadgeEl.addClass("yellow");
+                        // // }
+                        // // else {
+                        // //     uvBadgeEl.addClass("red");
+                        // // }
+                })
+            })
         })
     })
 };
@@ -185,20 +230,10 @@ var formSubmitHandler = function(event) {
 
     if(cityName){
         displayWeather()
+        saveSearch();
         displayUVIndex()
     }
 };
 
-//save to local storage
-// function saveSearch(){
-// var citySearch = 
-// console.log(citySearch)
-// // localStorage.setItem(citySearch, value);
-// };
-
-//then display to the search history container
-
 //event listener to display weather on form submit
 cityFormSearchEl.addEventListener("submit", formSubmitHandler);
-
-// saveSearch();

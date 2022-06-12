@@ -45,3 +45,9 @@ header {
 .yellow {
     background-color: yellow
 }
+
+.list-group {
+    padding-left: 30px;
+    color: black;
+    list-style: none;
+}
