@@ -45,8 +45,9 @@ forecastHumidityFive = document.querySelector(".forecastHumidityFive");
 
 
 //searchButton event listener and the functions for the weather display & five day forecast
-searchButton.addEventListener("click", function() {
-    event.preventDefault();
+// searchButton.addEventListener("click", function() {
+//     event.preventDefault();
+var displayWeather = function() {
     var currentWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + inputValue.value + "&appid=a0e1548f4b7fe9bc85174edebf7cf635&units=imperial"
     fetch(currentWeather)
     .then(function(response) {
@@ -150,32 +151,19 @@ searchButton.addEventListener("click", function() {
             forecastHumidityFive.innerHTML = forecastHumidityValueFive;  
         })
     })
-});
+};
 
 //form submit handler
-// var formSubmitHandler = function(event) {
-//     event.preventDefault();
-//     console.log(event);
+var formSubmitHandler = function(event) {
+    event.preventDefault();
     
-//     //get value from the form-control
-//     var cityName = inputValue.value
+    //get value from the form-control
+    var cityName = inputValue.value
 
-//     if(cityName){
-//         displayWeather
-//     }
-// }
+    if(cityName){
+        displayWeather()
+    }
+};
 
-//         // for (var i = 0; i < fiveDayForecast.length; i++){
-//         //     var forecastDay = fiveDayForecast.list[i];
-//         //     console.log(forecastDay);
-        // } 
-
-        //     //then display the five day forecast
-//     var displayForecast = function(fiveDayForecast, inputValue){
-//         for (var i = 0; i < inputValue.length; i++){
-//             var forecastDay = data.list[i];
-//             console.log(forecastDay);
-//         } 
-//     };
-
-// cityFormSearchEl.addEventListener("submit", formSubmitHandler);
+//event listener to display weather on form submit
+cityFormSearchEl.addEventListener("submit", formSubmitHandler);
