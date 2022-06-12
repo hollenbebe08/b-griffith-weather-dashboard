@@ -16,9 +16,6 @@ The Weather Dashboard allows the user to enter a city within the USA into the se
 * moment.js
 * Open Weather API
 
-## Contributions:
-* Betsy Griffith
-
 ## Future Enhancements:
 * Have the icon display in the five day forecast
 * Have only the current weather icon appended to the page and the other removed upon load with the new cities data
@@ -27,6 +24,11 @@ The Weather Dashboard allows the user to enter a city within the USA into the se
 * Have the search history list be clickable and for the search histories data to reapper in the current and five day forecast weather displays
 * Have the code be responsive to smaller screen sizes
 
-# Website:
+## Website:
+https://hollenbebe08.github.io/b-griffith-weather-dashboard/
 
-# Deployed Site Screenshot:
+## Contributions:
+* Betsy Griffith
+
+## Deployed Site Screenshot:
+![screenshot of portfolio](./assets/images/deploy-screenshot.png)
