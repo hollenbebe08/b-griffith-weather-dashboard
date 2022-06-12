@@ -24,3 +24,8 @@ header {
     padding-left: 20px;
 }
 
+.card-one, .card-two, .card-three, .card-four, .card-five {
+    background-color: #3377B7;
+    color: white;
+}
+
