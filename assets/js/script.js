@@ -205,20 +205,12 @@ var displayUVIndex = function(){
                 response.json().then(function(data) {
                     // console.log(data);
                     var uvIndex = data.hourly[0].uvi;
-                    console.log(uvIndex);
-                        // if(uvIndex > 2 ){
-                        //     uvBadgeEl.removeClass("badge");
-                        // }
-                        // // // else if (uvIndex > 2 && uvIndex < 6) {
-                        // //     uvBadgeEl.addClass("yellow");
-                        // // }
-                        // // else {
-                        // //     uvBadgeEl.addClass("red");
-                        // // }
+                        uvBadgeEl.innerHTML = uvIndex
                 })
             })
         })
     })
+    
 };
 
 //form submit handler
@@ -234,6 +226,7 @@ var formSubmitHandler = function(event) {
         displayUVIndex()
     }
 };
+
 
 //event listener to display weather on form submit
 cityFormSearchEl.addEventListener("submit", formSubmitHandler);
