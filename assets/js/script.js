@@ -61,16 +61,11 @@ var displayWeather = function() {
           var weatherIcon= "http://openweathermap.org/img/w/" + iconCode + ".png";
           weatherSymbol.setAttribute("src", weatherIcon)
           icon.append(weatherSymbol);
-        //   var lat = data.coord.lat
-        //   var lon = data.coord.lon
-        //   var uvValue= "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid=a0e1548f4b7fe9bc85174edebf7cf635&units=imperial";
-          
           //add to page
           cityName.innerHTML= nameValue;
           temp.innerHTML= tempValue;
           wind.innerHTML= windValue;
           humidity.innerHTML= humidityValue;
-        //   uvIndex.append(uvValue);
         })
     });
     //get api for 5 day forecast
@@ -81,7 +76,7 @@ var displayWeather = function() {
         response.json().then(function(data) {
             var forecastDateValue = data.list[0].dt_txt;
             var forecastTempValue = ": " + data.list[0].main.temp + " ℉";
-            var fiveDayForecastDate = ": " + new Date(forecastDateValue).toLocaleDateString();
+            var fiveDayForecastDate = new Date(forecastDateValue).toLocaleDateString();
             var forecastWindValue = ": " + data.list[0].wind.speed + " MPH";
             var forecastHumidityValue = ": " + data.list[0].main.humidity + "%";
 
@@ -96,7 +91,7 @@ var displayWeather = function() {
         response.json().then(function(data) {
             var forecastDateValueTwo = data.list[8].dt_txt;
             var forecastTempValueTwo = ": " + data.list[8].main.temp + " ℉";
-            var fiveDayForecastDateTwo = ": " + new Date(forecastDateValueTwo).toLocaleDateString();
+            var fiveDayForecastDateTwo = new Date(forecastDateValueTwo).toLocaleDateString();
             var forecastWindValueTwo = ": " + data.list[8].wind.speed + " MPH";
             var forecastHumidityValueTwo = ": " + data.list[8].main.humidity + "%";
 
@@ -111,7 +106,7 @@ var displayWeather = function() {
         response.json().then(function(data) {
             var forecastDateValueThree = data.list[15].dt_txt;
             var forecastTempValueThree = ": " + data.list[15].main.temp + " ℉";
-            var fiveDayForecastDateThree = ": " + new Date(forecastDateValueThree).toLocaleDateString();
+            var fiveDayForecastDateThree = new Date(forecastDateValueThree).toLocaleDateString();
             var forecastWindValueThree = ": " + data.list[15].wind.speed + " MPH";
             var forecastHumidityValueThree = ": " + data.list[15].main.humidity + "%";
 
@@ -126,7 +121,7 @@ var displayWeather = function() {
         response.json().then(function(data) {
             var forecastDateValueFour = data.list[23].dt_txt;
             var forecastTempValueFour = ": " + data.list[23].main.temp + " ℉";
-            var fiveDayForecastDateFour = ": " + new Date(forecastDateValueFour).toLocaleDateString();
+            var fiveDayForecastDateFour = new Date(forecastDateValueFour).toLocaleDateString();
             var forecastWindValueFour = ": " + data.list[23].wind.speed + " MPH";
             var forecastHumidityValueFour = ": " + data.list[23].main.humidity + "%";
 
@@ -141,7 +136,7 @@ var displayWeather = function() {
         response.json().then(function(data) {
             var forecastDateValueFive = data.list[31].dt_txt;
             var forecastTempValueFive = ": " + data.list[31].main.temp + " ℉";
-            var fiveDayForecastDateFive = ": " + new Date(forecastDateValueFive).toLocaleDateString();
+            var fiveDayForecastDateFive = new Date(forecastDateValueFive).toLocaleDateString();
             var forecastWindValueFive = ": " + data.list[31].wind.speed + " MPH";
             var forecastHumidityValueFive = ": " + data.list[31].main.humidity + "%";
 
@@ -149,6 +144,34 @@ var displayWeather = function() {
             forecastTempFive.innerHTML = forecastTempValueFive;
             forecastWindFive.innerHTML = forecastWindValueFive;
             forecastHumidityFive.innerHTML = forecastHumidityValueFive;  
+        })
+    })
+};
+
+var displayUVIndex = function(){
+    var currentWeather = "https://api.openweathermap.org/data/2.5/weather?q=" + inputValue.value + "&appid=a0e1548f4b7fe9bc85174edebf7cf635&units=imperial"
+    fetch(currentWeather)
+    .then(function(response) {
+        response.json().then(function(data) {
+            var lat = data.coord.lat;
+            var lon = data.coord.lon;
+            var uvValue = "https://api.openweathermap.org/data/2.5/weather?lat="+ lat + "&lon=" + lon + "&appid=a0e1548f4b7fe9bc85174edebf7cf635&units=imperial";
+            fetch(uvValue) 
+            console.log(uvValue);
+            // .then (function(response){ 
+            //         response.json().then(function(data) {
+            //             console.log(data);
+            //         // if(uvValue < 2){
+            //         //     uvIndex.addClass("badge-success");
+            //         // }
+            //         // else if (uvValue > 2 && uvIndex < 6) {
+            //         //     uvIndex.addClass("yellow");
+            //         // }
+            //         // else {
+            //         //     uvBadgeEl.addClass("red");
+            //         // }
+            //     // })
+            // }) 
         })
     })
 };
@@ -162,8 +185,20 @@ var formSubmitHandler = function(event) {
 
     if(cityName){
         displayWeather()
+        displayUVIndex()
     }
 };
 
+//save to local storage
+// function saveSearch(){
+// var citySearch = 
+// console.log(citySearch)
+// // localStorage.setItem(citySearch, value);
+// };
+
+//then display to the search history container
+
 //event listener to display weather on form submit
 cityFormSearchEl.addEventListener("submit", formSubmitHandler);
+
+// saveSearch();

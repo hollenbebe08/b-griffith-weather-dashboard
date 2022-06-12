@@ -29,3 +29,19 @@ header {
     color: white;
 }
 
+.forecastDateOne, .forecastDateTwo, .forecastDateThree, .forecastDateFour, .forecastDateFive {
+    font-weight: bold;
+    font-size: 16pt;
+}
+
+.green {
+    background-color: green
+}
+  
+.red {
+    background-color: red
+}
+  
+.yellow {
+    background-color: yellow
+}
